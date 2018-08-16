@@ -1,0 +1,139 @@
+{% extends 'index_base.html' %}
+
+{% block title %}
+注册
+{% endblock %}
+
+{% block main %}
+    {% block top_left %}
+                <ul>
+                    <li class="top_left_li"><a href="/bms/stuindex/">首页</a></li>
+                    <li class="top_left_li"><a href="/bms/stuuselect/">图书管理</a></li>
+                    <li class="top_left_li"><a href="/bms/stuuser/">个人中心</a></li>
+                    <li class="top_left_li"><a href="/bms/stuborrow/">借阅排行耪</a></li>
+                    <li class="top_left_li"><a href="">关于我们</a></li>
+                </ul>
+    {% endblock %}
+    {% block top_right %}
+        <ul>
+            <li class="top_right_li"><a href="/bms/sturegister/">注册</a></li>
+            <li class="top_right_li"><a href="/bms/stulogin/">登录</a></li>
+        </ul>
+    {% endblock %}
+
+    <img src="/static/backimg3.jpg" alt="">
+    <div class="registertype">
+        <p>
+            &emsp;&emsp;<input type="radio" name="style" value="1" id="style1" checked class="style"><label for="style1">普通用户注册</label>&emsp;&emsp;
+            <input type="radio" name="style" value="2" id="style" class="style"><label for="style">管理员注册</label>
+        </p>
+    </div>
+    <div class="register">
+        <form action="/bms/sturegister/" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="unum">学号或工号：</label><input type="text" name="s_id" id="unum">
+            </p>
+            <p>
+                <label for="uname">姓&emsp;&emsp;&emsp;名：</label><input type="text" name="sname" id="uname">
+            </p>
+            <p>
+                姓&emsp;&emsp;&emsp;别：&emsp;<input type="radio" name="gender" id="ugender" value="男"><label for="ugender" class="gender">男</label>
+                &emsp;<input type="radio" name="gender" id="nvgender" value="女"><label for="nvgender" class="gender">女</label>
+            </p>
+            <p>
+                <label for="phone">手&emsp;机&emsp;号：</label><input type="text" name="sphone" id="phone">
+            </p>
+            <p>
+                <label for="grade">年&emsp;&emsp;&emsp;级：</label>
+                <select name="grade" id="grade">
+                    <option value="大一">大一</option>
+                    <option value="大二">大二</option>
+                    <option value="大三">大三</option>
+                    <option value="大四">大四</option>
+                </select>
+            </p>
+            <p>
+                <label for="major">专&emsp;&emsp;&emsp;业：</label>
+                <select name="major" id="major">
+                    <option value="计算机科学与技术">计算机科学与技术</option>
+                    <option value="电子科学与技术">电子科学与技术</option>
+                    <option value="网络工程">网络工程</option>
+                    <option value="物联网工程">物联网工程</option>
+                    <option value="生物工程">生物工程</option>
+                    <option value="兽医学">兽医学</option>
+                    <option value="农学">农学</option>
+                    <option value="林学">林学</option>
+                    <option value="经济学">经济学</option>
+                    <option value="会计学">会计学</option>
+                    <option value="土地资源管理">土地资源管理</option>
+                    <option value="物流管理">物流管理</option>
+                    <option value="市场营销">市场营销</option>
+                    <option value="政治经济学">政治经济学</option>
+                    <option value="外交学">外交学</option>
+                    <option value="财政学">财政学</option>
+                    <option value="数学">数学</option>
+                    <option value="物理学">物理学</option>
+                </select>
+            </p>
+            <p>
+                上传&emsp;头像：<input type="file" name="s_img">
+            </p>
+            <p>
+                <label for="upwd">密&emsp;&emsp;&emsp;码：</label><input type="password" name="spwd" id="upwd">
+            </p>
+            <p>
+                <label for="upwd1">重复&emsp;密码：</label><input type="password" name="spwd1" id="upwd1">
+            </p>
+            <p>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="注 册" id="register">
+            </p>
+        </form>
+    </div>
+
+    <div class="register">
+        <form action="/bms/sturegister/" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="e_id">管理员编号：</label><input type="text" name="e_id" id="e_id">
+            </p>
+            <p>
+                <label for="e_name">姓&emsp;&emsp;&emsp;名：</label><input type="text" name="ename" id="e_name">
+            </p>
+            <p>
+                <label for="e_phone">手&emsp;机&emsp;号：</label><input type="text" name="ephone" id="e_phone">
+            </p>
+            <p>
+                <label for="pname">职&emsp;&emsp;&emsp;位：</label><input type="text" name="pname" id="pname">
+            </p>
+            <p>
+                <label for="mpwd">密&emsp;&emsp;&emsp;码：</label><input type="password" name="mpwd" id="mpwd">
+            </p>
+            <p>
+                <label for="mpwd1">重复&emsp;密码：</label><input type="password" name="mpwd1" id="mpwd1">
+            </p>
+            <p>
+                上传&emsp;头像：<input type="file" name="m_img">
+            </p>
+            <p>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="注 册" id="register">
+            </p>
+        </form>
+
+    </div>
+
+{% endblock %}
+
+{% block footerjs %}
+    <script src="/static/jquery-1.12.3.min.js"></script>
+    <script>
+        $('.register').eq(0).css('display','block')
+        for(let i=0;i<$('.style').length;i++){
+            $('.style').eq(i).click(function(){
+                $('.register').fadeOut()
+                $('.register').eq(i).fadeIn()
+            })
+
+        }
+    </script>
+{% endblock %}

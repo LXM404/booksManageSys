@@ -1,0 +1,38 @@
+{% extends 'index_base.html' %}
+
+{% block title %}图书馆管理系统{% endblock %}
+
+{% block main %}
+    {% block top_left %}
+                <ul>
+                    <li class="top_left_li"><a href="/bms/index/">首页</a></li>
+                    <li class="top_left_li"><a href="/bms/uselect/">图书管理</a></li>
+                    <li class="top_left_li"><a href="/bms/usermanage/">用户管理</a></li>
+                    <li class="top_left_li"><a href="/bms/user/">个人中心</a></li>
+                    <li class="top_left_li"><a href="/bms/borrow/">借阅排行耪</a></li>
+                    <li class="top_left_li"><a href="">关于我们</a></li>
+                </ul>
+    {% endblock %}
+    {% block top_right %}
+        <ul>
+            <li class="top_right_li"><a href="/bms/index/">退出</a></li>
+            <li class="top_right_li">当前用户：</li>
+        </ul>
+    {% endblock %}
+
+    <img src="/static/backimg3.jpg" alt="">
+
+    <div class="select">
+        <form action="/bms/query/">
+            <select name="item" class="item">
+                <option value="1">书名查询</option>
+                <option value="2">作者查询</option>
+            </select>
+            <input type="text" class="name" name="bname">
+            <input type="submit" value="查询" class="item">
+        </form>
+    </div>
+{% endblock %}
+
+</body>
+</html>

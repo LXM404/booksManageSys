@@ -1,0 +1,38 @@
+{% extends 'index_base.html' %}
+
+{% block title %}
+用户首页
+{% endblock %}
+
+{% block main %}
+    {% block top_left %}
+                <ul>
+                    <li class="top_left_li"><a href="/bms/stuindex/">首页</a></li>
+                    <li class="top_left_li"><a href="/bms/stuuselect/">图书管理</a></li>
+                    <li class="top_left_li"><a href="/bms/stuuser/">个人中心</a></li>
+                    <li class="top_left_li"><a href="/bms/stuborrow/">借阅排行耪</a></li>
+                    <li class="top_left_li"><a href="">关于我们</a></li>
+                </ul>
+    {% endblock %}
+    {% block top_right %}
+        <ul>
+            <li class="top_right_li"><a href="/bms/sturegister/">注册</a></li>
+            <li class="top_right_li"><a href="/bms/stulogin/">登录</a></li>
+        </ul>
+    {% endblock %}
+
+    <img src="/static/backimg3.jpg" alt="">
+
+    <div class="select">
+        <form action="/bms/stuquery1/">
+            <select name="item" class="item">
+                <option value="1">书名查询</option>
+                <option value="2">作者查询</option>
+                <option value="2">类别查询</option>
+                <option value="2">学科查询</option>
+            </select>
+            <input type="text" class="name" name="bname">
+            <input type="submit" value="查询" class="item">
+        </form>
+    </div>
+{% endblock %}

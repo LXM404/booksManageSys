@@ -1,0 +1,40 @@
+{% extends 'index_base.html' %}
+{% block title %}
+登录
+{% endblock %}
+
+{% block main %}
+    {% block top_left %}
+                <ul>
+                    <li class="top_left_li"><a href="/bms/stuindex/">首页</a></li>
+                    <li class="top_left_li"><a href="/bms/stuuselect/">图书管理</a></li>
+                    <li class="top_left_li"><a href="/bms/stuuser/">个人中心</a></li>
+                    <li class="top_left_li"><a href="/bms/stuborrow/">借阅排行耪</a></li>
+                    <li class="top_left_li"><a href="">关于我们</a></li>
+                </ul>
+    {% endblock %}
+    {% block top_right %}
+        <ul>
+            <li class="top_right_li"><a href="/bms/sturegister/">注册</a></li>
+            <li class="top_right_li"><a href="/bms/stulogin/">登录</a></li>
+        </ul>
+    {% endblock %}
+    <img src="/static/backimg3.jpg" alt="">
+    <div class="login">
+        <form action="/bms/stulogin/" method="post">
+            {% csrf_token %}
+            <p>
+                &emsp;<input type="radio" name="style" value="1" id="style1" checked><label for="style1">普通用户登录</label>&emsp;
+                <input type="radio" name="style" value="2" id="style"><label for="style">管理员登录</label>
+            </p>
+            <p>
+                <label for="uname">学号或工号：</label><input type="text" name="s_is" id="uname" class="inpu">
+            </p>
+            <p>
+                <label for="upwd">密&emsp;&emsp;&emsp;码：</label><input type="password" name="spwd" id="upwd" class="inpu">
+            </p>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="登 录" class="btn1">
+            <input type="checkbox" name="isname"><span class="txt">是否记住密码？</span>
+        </form>
+    </div>
+{% endblock %}
