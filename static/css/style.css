@@ -109,6 +109,16 @@ img{
     left: 560px;
     color: white;
     font-size: 20px;
+    display: none;
+}
+.login_style{
+    width: 400px;
+    margin: 10px auto;
+    position: absolute;
+    top: 180px;
+    left: 560px;
+    color: white;
+    font-size: 20px;
 }
 .inpu{
     height: 30px;

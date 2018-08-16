@@ -20,13 +20,15 @@
         </ul>
     {% endblock %}
     <img src="/static/backimg3.jpg" alt="">
+    <div class="login_style">
+        <p>
+            &emsp;<input type="radio" name="style" value="1" id="style1" checked class="style"><label for="style1">普通用户登录</label>&emsp;
+            <input type="radio" name="style" value="2" id="style" class="style"><label for="style">管理员登录</label>
+        </p>
+    </div>
     <div class="login">
         <form action="/bms/stulogin/" method="post">
             {% csrf_token %}
-            <p>
-                &emsp;<input type="radio" name="style" value="1" id="style1" checked><label for="style1">普通用户登录</label>&emsp;
-                <input type="radio" name="style" value="2" id="style"><label for="style">管理员登录</label>
-            </p>
             <p>
                 <label for="uname">学号或工号：</label><input type="text" name="s_is" id="uname" class="inpu">
             </p>
@@ -37,4 +39,32 @@
             <input type="checkbox" name="isname"><span class="txt">是否记住密码？</span>
         </form>
     </div>
+
+    <div class="login">
+        <form action="/bms/stulogin/" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="uname">管理员帐号：</label><input type="text" name="e_id" id="uname" class="inpu">
+            </p>
+            <p>
+                <label for="upwd">密&emsp;&emsp;&emsp;码：</label><input type="password" name="mpwd" id="upwd" class="inpu">
+            </p>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" value="登 录" class="btn1">
+            <input type="checkbox" name="isname"><span class="txt">是否记住密码？</span>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footerjs %}
+    <script src="/static/jquery-1.12.3.min.js"></script>
+    <script>
+        $('.login').eq(0).css('display','block')
+        for(let i=0;i<$('.style').length;i++){
+            $('.style').eq(i).click(function(){
+                $('.login').fadeOut()
+                $('.login').eq(i).fadeIn()
+            })
+
+        }
+    </script>
 {% endblock %}
